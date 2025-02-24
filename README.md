@@ -1,5 +1,3 @@
-## Mon église et moi - Frontend
-
 # Mon Église et Moi - Frontend  
 
 Ce projet est le frontend de l'application mobile **Mon Église et Moi**, développé avec **Next.js**.  
@@ -13,3 +11,9 @@ Il s'agit d'un site destiné à une communauté religieuse, offrant plusieurs fo
 
 ## Aperçu du projet 📸  
 ![Screenshot](public/images/screenshot.png)  
+
+## 🚀 Démo  
+[Accéder à la démo](https://mon-eglise-et-moi.vercel.app/)  
+
+
+
