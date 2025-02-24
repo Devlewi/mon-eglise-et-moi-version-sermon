@@ -1,0 +1,75 @@
+"use client"
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+
+export default function BigSlider() {
+  return (
+    <div className="relative">
+      {/* Swiper Container */}
+      <Swiper
+        spaceBetween={50} // Espacement entre les diapositives
+        slidesPerView={1} // Nombre de diapositives visibles
+        navigation={{ clickable: true }} // Permet les boutons de navigation
+        loop={true} // Le slider fait une boucle continue
+        className="mySwiper"
+      >
+        {/* Diapositives */}
+        <SwiperSlide>
+          <div className="relative">
+            <img
+              src={'/images/abidjan.jpg'}
+              alt="Slide 1"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 flex items-center justify-center text-white text-2xl">
+              <p>Bienvenue sur la première diapositive !</p>
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="relative">
+            <img
+              src="https://via.placeholder.com/1200x600"
+              alt="Slide 2"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 flex items-center justify-center text-white text-2xl">
+              <p>Découvrez notre deuxième diapositive.</p>
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="relative">
+            <img
+              src="https://via.placeholder.com/1200x600"
+              alt="Slide 3"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 flex items-center justify-center text-white text-2xl">
+              <p>Et voici la troisième diapositive !</p>
+            </div>
+          </div>
+        </SwiperSlide>
+      </Swiper>
+
+      {/* Navigation personnalisée */}
+      <div className="absolute top-1/2 left-0 transform -translate-y-1/2">
+        <button
+          className="bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-600 focus:outline-none"
+          onClick={() => swiper.slidePrev()} // Naviguer vers la diapositive précédente
+        >
+          &#8592;
+        </button>
+      </div>
+
+      <div className="absolute top-1/2 right-0 transform -translate-y-1/2">
+        <button
+          className="bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-600 focus:outline-none"
+          onClick={() => swiper.slideNext()} // Naviguer vers la diapositive suivante
+        >
+          &#8594;
+        </button>
+      </div>
+    </div>
+  );
+}

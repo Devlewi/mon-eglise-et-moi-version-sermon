@@ -1,0 +1,64 @@
+"use client";
+
+import { Canvas, useFrame, useLoader } from "@react-three/fiber";
+import * as THREE from "three";
+import { useRef, useState } from "react";
+import { TextureLoader } from "three";
+import { gsap } from "gsap";
+
+// Liste des images
+const images = ["/images/abidjan.jpg", "/images/abidjan.jpg", "/images/abidjan.jpg"];
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ShaderImage = ({ texture, index, activeIndex, setActiveIndex }: any) => {
+  const meshRef = useRef<THREE.Mesh>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [hovered, setHovered] = useState(false);
+
+  useFrame(() => {
+    if (meshRef.current) {
+      gsap.to(meshRef.current.rotation, {
+        y: activeIndex === index ? 0 : -0.5,
+        duration: 1.2,
+        ease: "power3.out",
+      });
+    }
+  });
+
+  return (
+    <mesh
+      ref={meshRef}
+      position={[index * 2.5, 0, 0]}
+      scale={activeIndex === index ? 1.2 : 1}
+      onClick={() => setActiveIndex(index)}
+      onPointerOver={() => setHovered(true)}
+      onPointerOut={() => setHovered(false)}
+    >
+      <planeGeometry args={[2, 3]} />
+      <meshBasicMaterial map={texture} toneMapped={false} />
+    </mesh>
+  );
+};
+
+const ShaderSlider = () => {
+  const textures = useLoader(TextureLoader, images);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  return (
+    <div className="w-full h-[400px] flex items-center justify-center bg-black">
+      <Canvas camera={{ position: [0, 0, 5] }}>
+        {textures.map((texture, index) => (
+          <ShaderImage
+            key={index}
+            texture={texture}
+            index={index}
+            activeIndex={activeIndex}
+            setActiveIndex={setActiveIndex}
+          />
+        ))}
+      </Canvas>
+    </div>
+  );
+};
+
+export default ShaderSlider;

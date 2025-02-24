@@ -1,0 +1,58 @@
+"use client";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCards, Pagination, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-cards";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+const images = [
+  "/images/slide1.jpg",
+  "/images/slide2.jpg",
+  "/images/slide3.jpg",
+  "/images/slide4.jpg",
+];
+
+//cards
+
+const CardSlider = () => {
+  return (
+    <div className="relative flex justify-center items-center min-h-[600px]">
+      <Swiper
+        effect=""
+        grabCursor={true}
+        modules={[EffectCards, Pagination, Navigation]}
+        navigation={{
+          nextEl: ".custom-next",
+          prevEl: ".custom-prev",
+        }}
+        pagination={{ clickable: true }}
+        className="w-full max-w-[1200px] h-[400px] sm:h-[450px] md:h-[500px]"
+
+      >
+        {images.map((src, index) => (
+          <SwiperSlide key={index} className="flex items-center justify-center">
+            <img
+              src={src}
+              alt={`Slide ${index + 1}`}
+              className="w-full h-auto max-h-[500px] object-cover rounded-lg"
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      {/* Flèche gauche */}
+      <button className="custom-prev absolute left-5 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center bg-white shadow-lg rounded-full hover:bg-gray-200 transition">
+        ◀
+      </button>
+
+      {/* Flèche droite */}
+      <button className="custom-next absolute right-5 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center bg-white shadow-lg rounded-full hover:bg-gray-200 transition">
+        ▶
+      </button>
+    </div>
+  );
+};
+
+export default CardSlider;

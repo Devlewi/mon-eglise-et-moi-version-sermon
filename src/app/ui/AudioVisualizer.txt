@@ -1,0 +1,30 @@
+import React, { useEffect, useRef } from 'react';
+import { AudioVisualizer } from 'react-audio-visualize';
+
+const Visualizer = ({ audioRef }) => {
+  const visualizerRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    if (audioRef?.current && visualizerRef.current) {
+      const stream = audioRef.current.captureStream();
+      setBlob(new Blob([stream], { type: 'audio/wav' }));
+    }
+  }, [audioRef]);
+
+  return (
+    <div>
+      <canvas ref={visualizerRef} width={500} height={75} />
+      <AudioVisualizer
+        ref={visualizerRef}
+        blob={blob}
+        width={500}
+        height={75}
+        barWidth={1}
+        gap={0}
+        barColor={'#f76565'}
+      />
+    </div>
+  );
+};
+
+export default Visualizer;
