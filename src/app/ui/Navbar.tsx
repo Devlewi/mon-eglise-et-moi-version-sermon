@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { FaBible, FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
+import { FaBible, FaSignInAlt, FaSignOutAlt, FaUserAlt } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 
 export default function Navbar() {
@@ -29,10 +29,11 @@ export default function Navbar() {
   // Navigation items array
   const navItems = [
     { name: "Accueil", href: "/" },
-    { name: "Prédications", href: "/predications" },
-    { name: "Annonces", href: "/" },
-    { name: "Boutique", href: "/" },
-    { name: "Activités", href: "/" },
+    { name: "Activités", href: "/activites" },
+    { name: "Boutique", href: "/boutique" },
+    { name: "Galerie Photos", href: "/" },
+    { name: "Nous Contacter", href: "/" },
+    //{ name: "Prédications", href: "/predications" },
   ];
 
   // 1er useEffect : Vérifie et met à jour l'état du token au chargement initial et ajoute un écouteur d'événement
@@ -96,7 +97,7 @@ export default function Navbar() {
             style={{ fontSize: 17 }}
           >
             <FaBible className="mr-2 text-xl"/>
-            Mon Eglise et Moi 
+            EEADCI
           </Link>
 
           <div className="lg:hidden">
@@ -130,13 +131,14 @@ export default function Navbar() {
             } lg:hidden z-50`}
           >
             <div className="flex flex-row items-center border-b pb-4">
-              <Link
-                href="/"
-                className="cursor-pointer text-gray-900 font-bold text-xl pt-4 ps-4"
-                style={{ fontSize: 17 }}
-              >
-Mon église et moi
-              </Link>
+            <Link
+            href="/"
+            className="mr-4 block cursor-pointer py-1.5 text-gray-900 font-bold text-1xl flex items-center mt-2"
+            style={{ fontSize: 17 }}
+          >
+            <FaBible className="ml-2 mr-2 text-xl"/>
+            EEADCI
+          </Link>
               <button
                 onClick={toggleMobileMenu}
                 className="absolute top-4 right-4 text-slate-600 hover:text-red-500"
@@ -162,7 +164,7 @@ Mon église et moi
                   key={index}
                   className="flex items-center p-1 text-lg gap-x-2 text-slate-600 hover:text-red-500"
                 >
-                  <Link href={item.href} className="flex items-center" style={{fontWeight:700, fontSize:16}}>
+                  <Link href={item.href} className="flex items-center" style={{fontWeight:700, fontSize:14}}>
                     {item.name}
                   </Link>
                 </li>
@@ -181,10 +183,10 @@ Mon église et moi
     <Link href="/connexion">
       <button
                       className="hover:bg-red-500 text-white px-8 py-2 rounded-md flex items-center"
-                      style={{ background: "#07193c", fontWeight: 800 , fontSize:16}}
+                      style={{ background: "#07193c", fontWeight: 800 , fontSize:14}}
                     >
-                    <FaSignInAlt  className="mr-2" />
-                      Connexion
+                    <FaUserAlt  className="mr-2" />
+                      Espace Membre
                     </button>
     </Link>
   )}
@@ -222,8 +224,8 @@ Mon église et moi
                       className="hover:bg-red-500 text-white px-8 py-2 rounded-md flex items-center"
                       style={{ background: "#07193c", fontWeight: 800, fontSize:16 }}
                     >
-                    <FaSignInAlt  className="mr-2" />
-                      Connexion
+                    <FaUserAlt  className="mr-2" />
+                    Espace Membre
                     </button>
                   </Link>
                 )}

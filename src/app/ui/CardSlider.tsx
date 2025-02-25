@@ -55,7 +55,7 @@ const BigSlider = () => {
               <p className="text-base sm:text-xl mb-4">Everywhere you go !</p>
 
               {/* Bouton */}
-              <button className="bg-blue-500 px-6 py-2 rounded-full text-white hover:bg-blue-400 transition">
+              <button className="bg-blue-700 px-6 py-2 rounded-full text-white hover:bg-blue-400 transition">
                 En savoir plus
               </button>
             </div>
@@ -64,12 +64,12 @@ const BigSlider = () => {
       </Swiper>
 
       {/* Flèche gauche */}
-      <button className="custom-prev absolute left-5 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center bg-white shadow-lg rounded-full hover:bg-gray-200 transition">
+      <button className="custom-prev absolute left-5 top-1/2 -translate-y-1/2 z-10 w-8 h-8 flex items-center justify-center bg-white shadow-lg rounded-full hover:bg-gray-200 transition">
         ◀
       </button>
 
       {/* Flèche droite */}
-      <button className="custom-next absolute right-5 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center bg-white shadow-lg rounded-full hover:bg-gray-200 transition">
+      <button className="custom-next absolute right-5 top-1/2 -translate-y-1/2 z-10 w-8 h-8 flex items-center justify-center bg-white shadow-lg rounded-full hover:bg-gray-200 transition">
         ▶
       </button>
     </div>
