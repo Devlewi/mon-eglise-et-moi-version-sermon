@@ -13,7 +13,6 @@ Il s'agit d'un site destiné à une communauté religieuse, offrant plusieurs fo
 ![Screenshot](public/images/screenshot.png)  
 
 ## 🚀 Démo  
-[Accéder à la démo](https://mon-eglise-et-moi.vercel.app/)  
 
 
 
